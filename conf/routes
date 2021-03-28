@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+GET     /health                                        controllers.HealthController.health
+
+GET     /accounts                                     controllers.AccountsController.accounts
+GET     /accounts/:accountId                           controllers.AccountsController.account(accountId: java.util.UUID)
+
+GET     /accounts/:accountId/balance                   controllers.BalancesController.balance(accountId: java.util.UUID)
+GET     /accounts/:accountId/balance/details           controllers.BalancesController.balanceDetails(accountId: java.util.UUID)
+
+POST    /accounts/:accountId/transactions/deposits     controllers.TransactionsController.performDeposit(accountId: java.util.UUID)
+POST    /accounts/:accountId/transactions/withdrawals  controllers.TransactionsController.performWithdrawal(accountId: java.util.UUID)
